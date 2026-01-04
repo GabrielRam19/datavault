@@ -68,6 +68,7 @@ export const DataChart = ({ data, type }: DataChartProps) => {
                             
                             labelLine={true}
                             label={({ name, percent }) => {
+                                if (!percent) return null;
                                 return `${name} (${(percent * 100).toFixed(0)}%)`;
                             }} 
                         >
