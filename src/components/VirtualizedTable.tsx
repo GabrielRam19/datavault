@@ -5,6 +5,11 @@ interface VirtualizedTableProps {
     data: any[];
 }
 
+/**
+ * Función que renderiza una tabla virtualizada usando react-virtuoso y Chakra UI.
+ * @param param0 Props que incluyen los datos a mostrar.
+ * @returns Componente de tabla virtualizada.
+ */
 export const VirtualizedTable = ({ data }: VirtualizedTableProps) => {
     // Colores
     const headerBg = useColorModeValue('gray.100', 'gray.700');
@@ -23,13 +28,11 @@ export const VirtualizedTable = ({ data }: VirtualizedTableProps) => {
     }
 
     // 2. Configuración de columnas
-    // Filtramos claves vacías por seguridad
     const columns = Object.keys(data[0]).filter(k => k !== "");
     const COLUMN_WIDTH = 150; 
     const totalWidth = columns.length * COLUMN_WIDTH;
 
     // 3. Renderizador de Fila (Row)
-    // Virtuoso nos pasa el índice directamente
     const rowContent = (index: number) => {
         const row = data[index];
         if (!row) return null;
@@ -42,7 +45,7 @@ export const VirtualizedTable = ({ data }: VirtualizedTableProps) => {
                 borderBottom="1px solid"
                 borderColor={borderColor}
                 _hover={{ bg: hoverBg }}
-                h="40px" // Altura fija de la fila
+                h="40px"
                 minWidth={`${totalWidth}px`} 
             >
                 {columns.map((col) => (
@@ -70,7 +73,7 @@ export const VirtualizedTable = ({ data }: VirtualizedTableProps) => {
 
     return (
         <Box 
-            h="500px" // Altura total de la tabla
+            h="500px"
             w="100%" 
             borderWidth="1px" 
             borderRadius="xl" 
@@ -89,7 +92,7 @@ export const VirtualizedTable = ({ data }: VirtualizedTableProps) => {
                 overflowX="auto"
                 overflowY="hidden"
                 width="100%"
-                flexShrink={0} // Evita que el header se aplaste
+                flexShrink={0}
                 css={{
                     '&::-webkit-scrollbar': { display: 'none' } 
                 }}
@@ -119,8 +122,8 @@ export const VirtualizedTable = ({ data }: VirtualizedTableProps) => {
                 <Virtuoso
                     style={{ height: '100%', width: '100%' }}
                     totalCount={data.length}
-                    itemContent={rowContent} // Función que dibuja cada fila
-                    overscan={20} // Renderiza 20 filas extra para que el scroll sea suave
+                    itemContent={rowContent}
+                    overscan={20}
                 />
             </Box>
             

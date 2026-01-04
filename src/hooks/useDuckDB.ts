@@ -58,6 +58,11 @@ export const useDuckDB = () => {
     };
   }, []);
 
+  /**
+   * Función para ejecutar una consulta SQL.
+   * @param sql Consulta SQL a ejecutar.
+   * @returns Resultados de la consulta.
+   */
   const runQuery = (sql: string): Promise<any[]> => {
     return new Promise((resolve, reject) => {
       if (!workerRef.current || !isReady) return reject("DB not ready");
@@ -69,6 +74,11 @@ export const useDuckDB = () => {
     });
   };
 
+  /**
+   * Función para subir un archivo CSV a DuckDB.
+   * @param file Archivo CSV a subir.
+   * @returns Metadatos de las columnas del archivo subido.
+   */
   const uploadFile = (file: File): Promise<any[]> => {
     return new Promise((resolve, reject) => {
       if (!workerRef.current || !isReady) return reject("DB not ready");
