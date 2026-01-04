@@ -54,7 +54,7 @@ export const FileUploader = ({ onFileSelected, isDisabled }: FileUploaderProps) 
             <VStack spacing={3}>
                 <Icon as={isDragActive ? FileType : UploadCloud} w={10} h={10} color={isDragActive ? activeColor : 'gray.400'} />
                 <Text fontWeight="bold" color="gray.500">
-                    {isDragActive ? "¡Suelta el archivo aquí!" : "Arrastra un CSV o Parquet aquí"}
+                    {isDragActive ? "¡Suelta el archivo aquí!" : "Arrastra un CSV, Parquet, XLS, XLSX o JSON aquí"}
                 </Text>
                 <Text fontSize="xs" color="gray.400">
                     Procesamiento local (Zero-Privacy Risk)
