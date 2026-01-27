@@ -88,7 +88,7 @@ export const QueryBuilder = ({ fileName, columns, onRunQuery, onChartTypeChange,
                             <option value="bar">📊 Barras</option>
                             <option value="line">📈 Líneas</option>
                             <option value="area">🗻 Área</option>
-                            <option value="pie">🍕 Pastel</option>
+                            <option value="pie">🍰 Pastel</option>
                         </Select>
                     </FormControl>
 
